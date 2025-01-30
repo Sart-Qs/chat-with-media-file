@@ -1,0 +1,141 @@
+.openChatContainer {
+    height: 100svh;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    @supports not (height: 100svh) {
+        height: 100%;
+    }
+}
+
+.openChatTopBar {
+    width: 100%;
+    padding-top: 56px;
+    margin-bottom: 32px;
+    z-index: 1;
+    box-shadow: 0px 59px 16px 0px rgba(0, 0, 0, 0.00), 0px 38px 15px 0px rgba(0, 0, 0, 0.01), 0px 21px 13px 0px rgba(0, 0, 0, 0.03), 0px 9px 9px 0px rgba(0, 0, 0, 0.05), 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 0px 0px 30px 30px;
+    position: relative; /* Add this line */
+}
+
+.exitButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.openChatChat {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 32px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.messagePull {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 90%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.message img, .message video {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.sender {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+}
+
+.recipient {
+    align-self: flex-start;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: initial;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    border: 0;
+}
+
+.nameChat {
+    position: relative;
+    padding-left: 30px;
+    padding-bottom: 4px;
+}
+
+.statusChat {
+    color: #94949e;
+    font-size: 12px;
+    padding-left: 30px;
+    padding-bottom: 12px;
+}
+
+.buttonSend {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    background: initial;
+    font-size: 13.3px;
+    padding: 1px 6px;
+}
+
+.inputMessage, .inputMessage:focus {
+    outline: none;
+    width: calc(100% - 196px);
+    padding: 10px 16px;
+    border: 0;
+}
+
+.openChatBottomBar {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 112px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contentNull {
+    text-align: center;
+    margin-top: auto;
+}

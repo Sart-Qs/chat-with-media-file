@@ -1,0 +1,14 @@
+<div class="loginContainer">
+    <div class="loginBox">
+        <div class="loginTitle"></div>
+        <div class="formField">
+            <label for="username">Логин</label>
+            <input type="text" id="username" class="inputField" [(ngModel)]="user.userName">
+        </div>
+        <div class="formField">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" class="inputField" [(ngModel)]="user.password">
+        </div>
+        <button class="loginButton" (click)="login(user)">Войти</button>
+    </div>
+</div>

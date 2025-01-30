@@ -1,0 +1,15 @@
+<div class="sideBarContainer">
+  <div class="chatContainer">
+      <div *ngFor="let room of global.chatRooms">
+          <div class="room" (click)="selectChat(room)">
+              <div class="avatar" [style.background]="getGradient(room.recipientFullName)">
+                  {{room.recipientFullName.charAt(0).toUpperCase()}}
+              </div>
+              {{room.recipientFullName}}
+          </div>
+      </div>
+  </div>
+  <div class="addChat">
+      <button class="addNewChat" (click)="addNewChat()">+</button>
+  </div>
+</div>

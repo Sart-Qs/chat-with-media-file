@@ -1,0 +1,43 @@
+<div class="openChatContainer">
+  <button class="exitButton" (click)="exitChat()">Выход</button>
+  <div class="openChatTopBar">
+    <div *ngIf="isChatSelect" class="nameChat">
+      {{global.selectedChat.recipientFullName}}
+    </div>
+    <div *ngIf="!isChatSelect" class="nameChat">
+      Чат не выбран
+    </div>
+    <div class="statusChat">offline</div>
+  </div>
+  <div *ngIf="isContent" class="openChatChat">
+    <div *ngFor="let message of global.messages" class="messagePull">
+      <div *ngIf="isText(message.fileType)" [ngClass]="{'message': true, 'sender': isSender(message), 'recipient': !isSender(message)}">
+        <div>{{message.content}}</div>
+      </div>
+      <div *ngIf="isImageFile(message.fileType)" [ngClass]="{'message': true, 'sender': isSender(message), 'recipient': !isSender(message)}">
+        <img src={{message.content}}>
+      </div>
+      <div *ngIf="isVideoFile(message.fileType)" [ngClass]="{'message': true, 'sender': isSender(message), 'recipient': !isSender(message)}">
+        <div>
+          <video controls>
+            <source src={{message.content}} type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div *ngIf="isOtherFile(message.fileType)" [ngClass]="{'message': true, 'sender': isSender(message), 'recipient': !isSender(message)}">
+        <div>
+          <a href={{message.content}}>Скачать</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isContent" class="contentNull">
+    Нет сообщений
+  </div>
+  <div class="openChatBottomBar">
+    <input id="upload" type="file" accept="image" style="display:none;" (change)="sendFile($event)">
+    <label for="upload" class="buttonSend">Добавить</label>
+    <input [(ngModel)]="newMessage" class="inputMessage" placeholder="Напишите сообщение...">
+    <button (click)="sendMessage()" class="buttonSend">Отправить</button>
+  </div>
+</div>

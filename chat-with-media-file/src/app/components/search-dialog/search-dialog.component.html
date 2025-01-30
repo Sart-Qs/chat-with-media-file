@@ -1,0 +1,11 @@
+<div class="searchContainer">
+    <div class="searchField">
+        <input type="text" class="inputField" placeholder="Введите имя" [(ngModel)]="name">
+        <button class="searchButton" (click)="search(name)">Поиск</button>
+    </div>
+    <div class="userList">
+        <div class="userItem" (click)="addNewChat(users)">
+            {{users.fullName}}
+        </div>
+    </div>
+</div>
